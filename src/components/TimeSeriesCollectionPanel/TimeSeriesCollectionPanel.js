@@ -97,6 +97,10 @@ class TimeSeriesCollectionPanel extends Component {
           numSeries={
             this.state.timeSeries.length + this.state.fusedSeries.length + 1
           }
+          onSetName={this.props.onSetName}
+          onSetUnit={this.props.onSetUnit}
+          onSetAllName={this.props.onSetAllName}
+          onSetAllUnit={this.props.onSetAllUnit}
         />
 
         {this.state.timeSeries.length === 0 ? (
@@ -124,6 +128,10 @@ class TimeSeriesCollectionPanel extends Component {
             updateControlStates={this.props.updateControlStates}
             clearDrawingInterval={this.props.clearDrawingInterval}
             drawingInterval={this.props.drawingInterval}
+            onSetName={this.props.onSetName}
+            onSetUnit={this.props.onSetUnit}
+            onSetAllName={this.props.onSetAllName}
+            onSetAllUnit={this.props.onSetAllUnit}
           />
         ) : null}
 
@@ -156,6 +164,10 @@ class TimeSeriesCollectionPanel extends Component {
             updateControlStates={this.props.updateControlStates}
             clearDrawingInterval={this.props.clearDrawingInterval}
             drawingInterval={this.props.drawingInterval}
+            onSetName={this.props.onSetName}
+            onSetUnit={this.props.onSetUnit}
+            onSetAllName={this.props.onSetAllName}
+            onSetAllUnit={this.props.onSetAllUnit}
           />
         ))}
         {this.state.fusedSeries
@@ -200,6 +212,10 @@ class TimeSeriesCollectionPanel extends Component {
                 updateControlStates={this.props.updateControlStates}
                 clearDrawingInterval={this.props.clearDrawingInterval}
                 drawingInterval={this.props.drawingInterval}
+                onSetName={this.props.onSetName}
+                onSetUnit={this.props.onSetUnit}
+                onSetAllName={this.props.onSetAllName}
+                onSetAllUnit={this.props.onSetAllUnit}
               />
             );
           })}

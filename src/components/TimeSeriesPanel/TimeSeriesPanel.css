@@ -36,7 +36,7 @@
   position: absolute;
   top: 0;
   right: 26px;
-  background-color: rgba(255, 255, 255, 0.4);
+  background-color: rgba(255, 255, 255, 0.7);
   padding: 1rem;
 }
 
@@ -79,4 +79,14 @@
 
 .dropdown button {
   font-size: 0.9rem;
+}
+
+.nameUnitChange {
+  display: flex;
+  align-items: center;
+}
+
+.buttonSetNameUnit {
+  display: flex;
+  justify-content: flex-end;
 }

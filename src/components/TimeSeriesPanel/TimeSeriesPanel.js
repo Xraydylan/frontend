@@ -651,6 +651,13 @@ class TimeSeriesPanel extends Component {
             offset={this.props.offset}
             onShift={this.props.onShift}
             onDelete={this.props.onDelete}
+            name={this.props.name}
+            unit={this.props.unit}
+            index={this.props.index}
+            onSetName={this.props.onSetName}
+            onSetUnit={this.props.onSetUnit}
+            onSetAllName={this.props.onSetAllName}
+            onSetAllUnit={this.props.onSetAllUnit}
           />
         ) : null}
 

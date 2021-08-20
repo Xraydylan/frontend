@@ -1,5 +1,13 @@
 import React, { Component } from 'react';
-import { Button, Input, Table, Card } from 'reactstrap';
+import {
+  Button,
+  Input,
+  Table,
+  Card,
+  InputGroup,
+  InputGroupAddon,
+  InputGroupText
+} from 'reactstrap';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEllipsisV } from '@fortawesome/free-solid-svg-icons';
@@ -20,8 +28,24 @@ class DropdownPanel extends Component {
       hour: time.getHours(),
       min: time.getMinutes(),
       sec: time.getSeconds(),
-      millisec: time.getMilliseconds()
+      millisec: time.getMilliseconds(),
+      name: props.name,
+      unit: props.unit
     };
+    this.onUnitChange = this.onUnitChange.bind(this);
+    this.onNameChange = this.onNameChange.bind(this);
+  }
+
+  onUnitChange(e) {
+    this.setState({
+      unit: e.target.value
+    });
+  }
+
+  onNameChange(e) {
+    this.setState({
+      name: e.target.value
+    });
   }
 
   componentWillMount() {
@@ -259,6 +283,78 @@ class DropdownPanel extends Component {
                 <hr />
               </div>
             ) : null}
+            <div className="nameUnitChange">
+              <div style={{ padding: '2px' }}>
+                <InputGroup>
+                  <InputGroupAddon addonType="prepend">
+                    <InputGroupText>name</InputGroupText>
+                  </InputGroupAddon>
+                  <Input
+                    data-testid="nameInput"
+                    type="text"
+                    placeholder="Name"
+                    onChange={this.onNameChange}
+                    value={this.state.name}
+                  />
+                </InputGroup>
+                <div className="buttonSetNameUnit">
+                  <Button
+                    style={{ whiteSpace: 'nowrap' }}
+                    id="deleteButton"
+                    color="primary"
+                    onClick={() =>
+                      this.props.onSetName(this.props.index, this.state.name)
+                    }
+                  >
+                    Set
+                  </Button>
+                  <Button
+                    style={{ whiteSpace: 'nowrap', marginLeft: '8px' }}
+                    id="deleteButton"
+                    color="primary"
+                    onClick={() => this.props.onSetAllName(this.state.name)}
+                  >
+                    Set all
+                  </Button>
+                </div>
+              </div>
+              <div style={{ padding: '2px' }}>
+                <InputGroup>
+                  <InputGroupAddon addonType="prepend">
+                    <InputGroupText>Unit</InputGroupText>
+                  </InputGroupAddon>
+                  <Input
+                    data-testid="unitInput"
+                    tpye="text"
+                    placeholder="Unit"
+                    onChange={this.onUnitChange}
+                    value={this.state.unit}
+                  />
+                </InputGroup>
+                <div className="buttonSetNameUnit">
+                  <Button
+                    style={{ whiteSpace: 'nowrap' }}
+                    id="deleteButton"
+                    color="primary"
+                    onClick={() =>
+                      this.props.onSetUnit(this.props.index, this.state.unit)
+                    }
+                  >
+                    Set
+                  </Button>
+                  <Button
+                    style={{ whiteSpace: 'nowrap', marginLeft: '8px' }}
+                    id="deleteButton"
+                    color="primary"
+                    onClick={() => this.props.onSetAllUnit(this.state.unit)}
+                  >
+                    Set all
+                  </Button>
+                </div>
+              </div>
+            </div>
+
+            <hr />
             <Button
               color="danger"
               block
